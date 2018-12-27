@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'complex-layout/complex-layout.widget.dart';
 import 'counter.widget.dart';
 import 'hello.widget.dart';
 import 'navigation-list.widget.dart';
@@ -16,6 +17,14 @@ class MainWidget extends StatelessWidget {
           items: {
             'Hello': (context) => HelloWidget(),
             'Counter': (context) => CounterWidget(),
+            'Complex Layout': (context) => ComplexLayoutWidget(
+                  data: DataDetails(
+                    assetImage: 'assets/images/lake.jpg',
+                    title: 'Oeschinnen Lake Campground',
+                    titleSub: 'Kandersteg, Switzerland',
+                    ratingNormalized: .55,
+                  ),
+                ),
           },
         ),
         showPerformanceOverlay: false,
