@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 
 import 'section-title.widget.dart';
+import 'section-actions.widget.dart';
 
 class DataDetails {
   DataDetails({
     @required this.assetImage,
     @required this.title,
     @required this.titleSub,
+    @required this.description,
     @required this.ratingNormalized,
   });
-  final String assetImage, title, titleSub;
+  final String assetImage, title, titleSub, description;
   final num ratingNormalized;
 }
 
@@ -31,6 +33,11 @@ class ComplexLayoutWidget extends StatelessWidget {
                 title: data.title,
                 titleSub: data.titleSub,
                 ratingNormalized: data.ratingNormalized),
+            SectionActionsWidget(),
+            Container(
+              padding: EdgeInsets.all(32),
+              child: Text(data.description, softWrap: true),
+            ),
           ],
         ),
       );

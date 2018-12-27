@@ -31,10 +31,10 @@ class SectionTitleWidget extends StatelessWidget {
             ),
             Icon(
               Icons.star,
-              color: Color.lerp(Colors.red, Colors.green, ratingNormalized),
+              color: Color.lerp(Colors.grey, Colors.green, ratingNormalized),
             ),
             Text((ratingNormalized * 100).floor().toString(),
-                style: Theme.of(context).textTheme.body2),
+                style: Theme.of(context).textTheme.headline),
           ],
         ),
       );
