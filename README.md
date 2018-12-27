@@ -4,11 +4,12 @@ Flutter research i.e. started with [Flutter Init] and adding complexity while lo
 
 ## Roadmap
 
-|Feature|State|Info|
-|-|-|-|
-|Setup Project|OK|Just followed [Flutter Init] for Windows and VS Code.|
-|Hello World|OK|Added hello-world widget.|
-|Stateful/Stateless Widgets|OK|Added counter widget.|
-|Basic Routing|WIP|Added navigation-list widget.|
+|Skill|Feature|State|Info|
+|-|-|-|-|
+|Base|Setup Project|OK|Just followed [Flutter Init] for Windows and VS Code.|
+|Widget|Hello World|OK|Added hello-world widget.|
+|Widget|Stateful/Stateless Widgets|OK|Added counter widget.|
+|Widget|Basic Routing|OK|Added navigation-list widget.|
+|Layout|Widget with a complex layout.|WIP|Added a pretty widget with some complicated layout and assets.|
 
 [Flutter Init]: https://flutter.io/docs/get-started "Flutter Getting Started"
