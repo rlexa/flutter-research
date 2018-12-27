@@ -1,19 +1,18 @@
 import 'package:flutter/material.dart';
 
+import 'value.widget.dart';
+
 class CounterWidget extends StatefulWidget {
   @override
   _CounterWidgetState createState() => _CounterWidgetState();
 }
 
-class _CounterWidgetState extends State<CounterWidget> {
+mixin _Counter {
   int _counter = 0;
+  void _incrementCounter() => ++_counter;
+}
 
-  void _incrementCounter() {
-    setState(() {
-      ++_counter;
-    });
-  }
-
+class _CounterWidgetState extends State<CounterWidget> with _Counter {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,29 +24,15 @@ class _CounterWidgetState extends State<CounterWidget> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text('You have pushed the button this many times:'),
-            ValueWidget(_counter),
+            ValueWidget(value: _counter),
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
+        onPressed: () => setState(() => this._incrementCounter()),
         tooltip: 'Increment',
         child: Icon(Icons.add),
       ),
-    );
-  }
-}
-
-class ValueWidget extends StatelessWidget {
-  ValueWidget(this.value, {Key key}) : super(key: key);
-
-  final int value;
-
-  @override
-  Widget build(BuildContext context) {
-    return Text(
-      value.toString(),
-      style: Theme.of(context).textTheme.display1,
     );
   }
 }
