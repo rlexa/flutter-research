@@ -8,5 +8,9 @@ class HelloWidget extends StatelessWidget {
           child:
               Text('Hello world!', style: Theme.of(context).textTheme.display1),
         ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () => Navigator.pop(context),
+          child: Icon(Icons.check),
+        ),
       );
 }

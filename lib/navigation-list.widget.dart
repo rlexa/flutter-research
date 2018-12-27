@@ -10,16 +10,15 @@ class NavigationListWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Scaffold(
-      appBar: AppBar(title: Text(this.title)),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+        appBar: AppBar(title: Text(title)),
+        body: ListView(
+          padding: EdgeInsets.all(16),
           children: items.entries
               .map((item) =>
                   _NavigationItemWidget(text: item.key, builder: item.value))
               .toList(),
         ),
-      ));
+      );
 }
 
 class _NavigationItemWidget extends StatelessWidget {
@@ -30,8 +29,9 @@ class _NavigationItemWidget extends StatelessWidget {
   final WidgetBuilder builder;
 
   @override
-  Widget build(BuildContext context) => RaisedButton(
-      child: Text(this.text),
-      onPressed: () =>
-          Navigator.push(context, MaterialPageRoute(builder: builder)));
+  Widget build(BuildContext context) => ListTile(
+        title: Text(text),
+        onTap: () =>
+            Navigator.push(context, MaterialPageRoute(builder: builder)),
+      );
 }
