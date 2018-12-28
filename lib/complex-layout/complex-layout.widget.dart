@@ -23,22 +23,41 @@ class ComplexLayoutWidget extends StatelessWidget {
   final String title;
   final DataDetails data;
 
+  DynamicBuildContextCallback showSnackbarCallback(String text) =>
+      (BuildContext context) =>
+          Scaffold.of(context).showSnackBar(SnackBar(content: Text(text)));
+
   @override
-  Widget build(BuildContext context) => Scaffold(
-        appBar: AppBar(title: Text(title)),
-        body: ListView(
-          children: [
-            Image.asset(data.assetImage, fit: BoxFit.cover),
-            SectionTitleWidget(
-                title: data.title,
-                titleSub: data.titleSub,
-                ratingNormalized: data.ratingNormalized),
-            SectionActionsWidget(),
-            Container(
-              padding: EdgeInsets.all(32),
-              child: Text(data.description, softWrap: true),
-            ),
-          ],
-        ),
-      );
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text(title)),
+      body: ListView(
+        children: [
+          Image.asset(data.assetImage, fit: BoxFit.cover),
+          SectionTitleWidget(
+              title: data.title,
+              titleSub: data.titleSub,
+              ratingNormalized: data.ratingNormalized),
+          SectionActionsWidget(actions: [
+            DataAction(
+                icon: Icons.call,
+                callback: showSnackbarCallback('TODO'),
+                text: 'CALL'),
+            DataAction(
+                icon: Icons.navigation,
+                callback: showSnackbarCallback('TODO'),
+                text: 'ROUTE'),
+            DataAction(
+                icon: Icons.share,
+                callback: showSnackbarCallback('TODO'),
+                text: 'SHARE'),
+          ]),
+          Container(
+            padding: EdgeInsets.all(32),
+            child: Text(data.description, softWrap: true),
+          ),
+        ],
+      ),
+    );
+  }
 }
