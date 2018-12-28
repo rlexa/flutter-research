@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'common/build-widgets.dart';
 
 class NavigationListWidget extends StatelessWidget {
   NavigationListWidget(
@@ -10,7 +11,7 @@ class NavigationListWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Scaffold(
-        appBar: AppBar(title: Text(title)),
+        appBar: BuildWidgets.appBarSettings(context: context, title: title),
         body: ListView(
           padding: EdgeInsets.all(16),
           children: items.entries
