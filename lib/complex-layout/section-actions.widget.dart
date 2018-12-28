@@ -37,11 +37,11 @@ class _ActionWidget extends StatelessWidget {
           IconButton(
             icon: Icon(data.icon),
             onPressed: () => data.callback(context),
-            color: Theme.of(context).primaryColor,
+            color: Theme.of(context).colorScheme.primary,
           ),
           Text(
             data.text,
-            style: TextStyle(color: Theme.of(context).primaryColor),
+            style: TextStyle(color: Theme.of(context).colorScheme.primary),
           ),
         ],
       );
